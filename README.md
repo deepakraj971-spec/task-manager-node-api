@@ -1,16 +1,15 @@
 ﻿# Node.js Task Manager API
 
 This project is a Node.js + TypeScript API built with Express and TypeORM,
-featuring secure authentication using JWT access/refresh tokens stored in HttpOnly cookies.
-It follows enterprise best practices with short-lived access tokens and long-lived refresh tokens.
+featuring secure authentication using JWT access tokens stored in HttpOnly cookies.
+It follows enterprise best practices with access tokens
 
 Features
 
 - User registration and login,Logout
 - Task View,Creation,Update,Delete, Server side pagination,Validations
-- JWT authentication with access and refresh tokens
+- JWT authentication with access tokens
 - HttpOnly, Secure cookies for token storage
-- Session refresh endpoint (/api/auth/refresh)
 - Logout endpoint to clear cookies
 - TypeORM integration with MSSQL
 - Validation using class-validator
