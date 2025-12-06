@@ -1,0 +1,8 @@
+import { Request, Response, NextFunction } from 'express';
+import { ApiResponse } from '../responses/ApiResponse';
+
+export function errorHandler(err: unknown, _req: Request, res: Response, _next: NextFunction) {
+  console.error(err);
+  const message = err instanceof Error ? err.message : 'Internal Server Error';
+  res.status(500).json(new ApiResponse(false, message));
+}
