@@ -15,9 +15,9 @@ router.post('/register', async (req, res) => {
   const success = await authService.registerAsync(name, email, password);
 
   if (success) {
-    return res.status(200).json(new ApiResponse<boolean>(true, 'User registered successfully', success));
+    return res.status(200).json(new ApiResponse<boolean>(true, 'User registered successfully'));
   } else {
-    return res.status(400).json(new ApiResponse<boolean>(false, 'User already exists', success));
+    return res.status(400).json(new ApiResponse<boolean>(false, 'User already exists'));
   }
 });
 
@@ -67,7 +67,7 @@ router.post('/refresh', (req, res) => {
     return res.status(401).json(new ApiResponse(false, 'No refresh token'));
   }
 
-  const payload = verifyToken(refreshToken);
+  const payload = verifyToken(refreshToken,'refresh');
   if (!payload || payload.type !== 'refresh') {
     return res.status(401).json(new ApiResponse(false, 'Invalid refresh token'));
   }
